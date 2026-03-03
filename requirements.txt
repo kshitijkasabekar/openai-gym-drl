@@ -1,5 +1,5 @@
-gym==0.25.2
-tensorflow
-keras-rl2
-pyglet
-pygame
+gymnasium[classic-control]==0.29.1
+stable-baselines3==2.3.2
+torch>=2.1.0
+numpy>=1.26,<3.0
+pygame>=2.5.0

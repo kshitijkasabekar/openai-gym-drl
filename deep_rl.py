@@ -2,9 +2,6 @@ import gymnasium as gym
 from stable_baselines3 import DQN
 import time
 
-# -------------------------
-# 1️⃣ TRAINING (No Rendering)
-# -------------------------
 train_env = gym.make("CartPole-v1")
 
 model = DQN(
@@ -25,10 +22,6 @@ model.save("cartpole_sb3")
 
 train_env.close()
 
-
-# -------------------------
-# 2️⃣ VISUALIZATION (With Graphics)
-# -------------------------
 eval_env = gym.make("CartPole-v1", render_mode="human")
 
 model = DQN.load("cartpole_sb3")
@@ -46,7 +39,6 @@ for episode in range(episodes):
         done = terminated or truncated
         total_reward += reward
 
-        # Slow down so you can see it clearly
         time.sleep(0.02)
 
     print(f"Episode {episode + 1} Reward: {total_reward}")
