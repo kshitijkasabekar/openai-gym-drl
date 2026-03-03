@@ -7,16 +7,19 @@ train_env = gym.make("CartPole-v1")
 model = DQN(
     "MlpPolicy",
     train_env,
-    verbose=1,
-    learning_rate=1e-3,
-    buffer_size=50000,
-    learning_starts=1000,
+    learning_rate=5e-4,
+    buffer_size=100000,
+    learning_starts=5000,
     batch_size=64,
     gamma=0.99,
-    target_update_interval=250
+    train_freq=4,
+    target_update_interval=1000,
+    exploration_fraction=0.1,
+    exploration_final_eps=0.02,
+    verbose=1,
 )
 
-model.learn(total_timesteps=50000)
+model.learn(total_timesteps=150000)
 
 model.save("cartpole_sb3")
 
